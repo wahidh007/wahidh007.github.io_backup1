@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+                <div class="card card-body">
+                        <h1 class="card-title">Inscription</h1>
+                        <form action="" method="post">
+                                <label for="pseudo">Pseudo</label>
+                                <input class="form-control" id="pseudo" type="text" name="pseudo" placeholder="Peudo"
+                                        data-validation="length alphanumeric" 
+                                        data-validation-length="min4"
+                                        data-validation-length="max12"
+                                /><br>
+                            
+                                <label for="age">Age</label>
+                                <input class="form-control"  id="age" type="text" name="age" placeholder="Age"
+                                        data-validation="number"
+                                        data-validation-allowing="range[1;100]"
+                                        data-validation-error-msg="Valeur numérique entre 1 et 100"
+                                        
+                                />
+                            
+                                <div class="message">Pseudo + Age</div>
+                            
+                                <button id="valider" type="submit" class="btn btn-primary">Valider</button> 
+                                <button id="bordervert" type="button" class="btn btn-success">Border vert</button> 
+                                <button id="bt_message" type="button" class="btn btn-info">Message</button>
+                                <button id="cacher" type="button" class="btn btn-danger">Cacher Inscription</button>
+                        </form>
+                    </div>
+        </div>
+    </div>
+    
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/jquery.form-validator.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.validate({
+            });
+
+            $("#valider").click(function(){
+                if ($("#age").val() < 18) {
+                    alert("age doit etre superieur ou eagale à 18");
+                    //$("#age").css("border", "1px solid red");
+                } else {
+                    alert("C Bon !");
+                    //$("#age").css("border", "1px solid green");
+                }
+            });
+
+            $("#bordervert").click(function(){
+                $("#pseudo").css("border", "1px solid green");
+            });
+
+            $("#bt_message").click(function(){
+                $(".message").text($("#pseudo").val() + ' : ' + $("#age").val());
+            });
+
+            $("#cacher").click(function(){
+                $("h1").hide(2000);
+            });            
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Demo 2</title>
+  </head>
+  <body>
+    <div id="titre">
+      <h1>Un exemple JQuery</h1>
+    </div>
+
+    <p class="para">Voila une presentation JQuery</p>
+
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" placeholder="Donnez votre Nom" size="30" />
+
+    <button id="bt1" type="button"> OK </button>
+
+    <script src="js/jquery-3.3.1.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        $('#bt1').on('click', function() {
+            alert($('#nom').val());
+        });
+
+        $("#titre").on('mouseenter', function() {
+          $(".para").hide();
+        });
+
+        $("#titre").mouseleave(function() {
+          $(".para").show();
+        });
+      });
+    </script>
+  </body>
+</html>

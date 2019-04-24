@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .orange {
+            color: orange;
+            text-align: center;
+            font-size: 32px;
+        }
+
+        .gras {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemple JQuery</h1>
+    <button id="bt1" type="button"> Orange </button> | <button id="bt2" type="button"> gras </button>
+
+    <p class="p1"> Voila un exemple JQuery !  <span> me voila..  </span> un autre exemple !
+    </p>
+    <div>
+        <h1 class="inscription">Inscription</h1>
+        <input type="text" id="nom" placeholder="Nom"/> 
+        <button id="afficher" type="button">Afficher</button>
+    </div>
+    
+    <div style="width: 50%" class="message">oui</div>
+    <a> un lien </a>
+
+    <script src="js/jquery-3.3.1.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#afficher').click(function(){
+                if ($('#nom').val() < 18) {
+                    alert($('#nom').val());
+                }
+                else {
+                    alert('c bon !');
+                }
+                $('#nom').css('border', '1px solid red');
+                $('.message').css('border', '1px solid red');
+                $('.message').text($('#nom').val());
+                $('.inscription').hide();
+            });
+
+            $('a').attr({
+                'href' : 'http://www.google.com', 
+                'target' : '_blanc'
+            });
+
+
+            $('#bt1').click(function(){
+                $('span').addClass('orange');
+            });
+
+            $('#bt2').click(function(){
+                $('span').addClass('gras');
+            });
+        });
+    </script>
+</body>
+</html>

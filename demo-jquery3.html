@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQuery demo 3</title>
+    <link href="css/theme-default.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div style="width:50%">
+        <form action="demo-jquery2.html" id="frm">
+            <fieldset>
+                <legend>Information</legend>
+                    <p>
+                        <label for="nom">Nom : </label>
+                        <input type="text" name="nom" id="nom" data-validation="length alphanumeric" 
+                        data-validation-length="3-12" 
+                        data-validation-error-msg="Nom utilisateur alphanumerique entre 3-12 lettres"> 
+                    </p>
+                    <p>
+                        <label for="age">Age : </label>
+                        <input type="text" name="age" id="age" data-validation="number" data-validation-allowing="range[1;100]"
+                        data-validation-error-msg="Valeur numéerique entre 1 et 100"> 
+                    </p>
+                    <p>
+                        Favorite color
+                        <input type="text" name="color" list="the-colors">
+                        <datalist id="the-colors">
+                            <option>Green</option>
+                            <option>Blue</option>
+                            <option>Red</option>
+                        </datalist>
+                    </p>
+                        <input type="submit" id="bt_submit" value="Valider">
+            </fieldset>
+        </form>
+        <div>
+            <span class="message"></span>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/jquery.form-validator.min.js"></script>
+    <script>
+        $.validate();
+    </script>
+</body>
+</html>
